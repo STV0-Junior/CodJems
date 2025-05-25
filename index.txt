@@ -1,0 +1,3628 @@
+
+
+
+
+
+                        ATENÇÃO ! ! ! !
+                        ATENÇÃO ! ! ! !
+                        ATENÇÃO ! ! ! !
+
+
+ESSE ARQUIVO É COMO FUNCIONA NA HOSTINGER
+1-- ESCREVA TUDO SEPARADO NOS OUTROS ARQUIVOS, COMO A CRIAÇÃO NORMAL
+2-- APOS FINALIZAR O ARQUIVO, UP HTML, CSS E JS TUDO EM UM UNIOC ARQUIVO,
+COMO ESSE, JUNTE TUDO EM UM ARQUIVO
+3-- O PHP FUNCIONA NORMAL, NAO PRECISA INCLUIR ARQUIVO
+
+(COPIE SO DO <!DOCTYPE html> PARA BAIXO!!!!!!!!!!!!)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programa de Indicações CodJems</title>
+   
+    <link rel="icon" href="/imagens/logo.png" type="image/x-icon">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+/* styles.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+/* Reset e Estilos Globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  background-color: black;
+  color: #333;
+}
+
+/* Container e Cabeçalho */
+.container {
+  max-width: 1200px;
+  padding: 1px 1px;
+}
+
+/* ================
+==== Navbar ======
+===================*/
+/* ======================
+   ESTRUTURA BASE (MOBILE FIRST)
+   ====================== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  padding: 1rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #1a0521 0%, #2d0a3a 100%);
+  color: white;
+  z-index: 1000;
+  box-shadow: 0 4px 20px rgba(196, 68, 238, 0.1);
+  border-bottom: 1px solid rgba(190, 0, 255, 0.2);
+}
+
+/* Linha decorativa inferior */
+.navbar::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #c61cff, transparent);
+  box-shadow: 0 0 15px rgba(190, 0, 255, 0.3);
+}
+
+/* Logo/Marca */
+.navbar-brand {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(190, 0, 255, 0.4);
+  transition: all 0.3s ease;
+}
+
+.navbar-brand:hover {
+  text-shadow: 0 0 25px rgba(190, 0, 255, 0.6);
+}
+
+/* Botão Hamburger */
+.hamburger-menu {
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 10px rgba(190, 0, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu:hover {
+  color: #be00ff;
+  transform: scale(1.1);
+  text-shadow: 0 0 20px rgba(190, 0, 255, 0.8);
+}
+
+/* Menu Lateral (Mobile) */
+.nav-links {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100vh;
+  padding: 6rem 0 2rem;
+  background: linear-gradient(180deg, #1a0521 0%, #0d0314 100%);
+  display: flex;
+  flex-direction: column;
+  box-shadow: 5px 0 25px rgba(190, 0, 255, 0.1);
+  border-right: 1px solid rgba(190, 0, 255, 0.15);
+  z-index: 999;
+  transition: all 0.4s cubic-bezier(0.65, 0.05, 0.36, 1);
+}
+
+.nav-links.active {
+  left: 0;
+}
+
+/* Links do Menu */
+.nav-links a {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: 0.5rem 0;
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+/* Ícones dos Links */
+.nav-links a i {
+  margin-right: 1.5rem;
+  font-size: 1.4rem;
+  color: #be00ff;
+  filter: drop-shadow(0 0 5px rgba(190, 0, 255, 0.5));
+}
+
+/* Efeitos de Hover */
+.nav-links a:hover {
+  padding-left: 3rem;
+  color: white;
+}
+
+.nav-links a::before {
+  content: '';
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(190, 0, 255, 0.1), transparent);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.nav-links a:hover::before {
+  left: 0;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #be00ff;
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* Overlay do Menu */
+.nav-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(11, 2, 19, 0.95);
+  backdrop-filter: blur(8px);
+  z-index: 998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.nav-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* ======================
+   VERSÃO DESKTOP
+   ====================== */
+@media (min-width: 769px) {
+  .navbar {
+    height: 80px;
+    padding: 1.2rem 2rem;
+  }
+  
+  .navbar-brand {
+    font-size: 2rem;
+  }
+  
+  .hamburger-menu {
+    display: none;
+  }
+  
+  .nav-links {
+    position: static;
+    width: auto;
+    height: auto;
+    flex-direction: row;
+    background: transparent;
+    box-shadow: none;
+    border: none;
+    padding: 0;
+  }
+  
+  .nav-links a {
+    padding: 0.5rem 1rem;
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  .nav-links a:hover {
+    padding-left: 1rem;
+  }
+  
+  .nav-links a i {
+    margin-right: 0.8rem;
+    font-size: 1.2rem;
+  }
+}
+
+/* ================
+===== Inicio ======
+===================*/
+/* ======================
+   ESTRUTURA BASE (MOBILE FIRST)
+   ====================== */
+#inicio {
+  background: black;
+  color: white;
+  padding: 2rem 1rem;
+  min-height: calc(100vh - 70px); /* Subtrai altura da navbar mobile */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 70px; /* Altura da navbar mobile */
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  width: 100%;
+}
+
+/* ======================
+   LOGO E MARCA
+   ====================== */
+.brand-container {
+  text-align: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+.logo-gradient {
+  position: relative;
+  display: inline-block;
+  font-size: 3.5rem;
+  font-weight: 700;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 2px;
+  line-height: 1.1;
+  margin-top: 20%; /* Removemos a margem superior anterior */
+  padding-top: 150px; /* Espaço para a logo acima do texto */
+}
+
+.logo-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 1.9em;
+  width: auto;
+  pointer-events: none;
+  filter: drop-shadow(0 0 8px rgba(190, 0, 255, 0.9)) brightness(1.2) contrast(1.3);
+  mix-blend-mode: lighten;
+  opacity: 0.95;
+  animation: logo-float 2.8s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@keyframes logo-float {
+  0%, 100% {
+    transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -55%) rotate(0deg) scale(1.03);
+  }
+}
+
+.slogan {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  letter-spacing: 1px;
+  max-width: 90%;
+  margin-left: 5%;
+}
+
+/* ======================
+   BADGE DE TECNOLOGIA
+   ====================== */
+.tech-badge {
+  display: inline-block;
+  margin: 1.5rem auto;
+  padding: 0.6rem 1.8rem;
+  background: rgba(190, 0, 255, 0.15);
+  border: 1px solid #be00ff;
+  border-radius: 50px;
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.tech-badge:hover {
+  background: rgba(190, 0, 255, 0.25);
+}
+
+.tech-badge span {
+  font-size: 0.95rem;
+  color: white;
+  font-weight: 500;
+}
+
+/* ======================
+   SETA DE SCROLL
+   ====================== */
+.scroll-down-arrow {
+  position: absolute;
+  bottom: 1rem;
+  margin-bottom: -50%;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2rem;
+  color: rgba(190, 0, 255, 0.7);
+  animation: bounce 2s infinite;
+  cursor: pointer;
+  z-index: 10;
+  text-decoration: none !important;
+}
+
+.scroll-down-arrow.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-5px) translateX(-50%);
+  }
+}
+
+/* ======================
+   LOGO E MARCA - DESKTOP
+   ====================== */
+@media (min-width: 768px) {
+  #inicio {
+    padding: 4rem 1rem;
+    min-height: calc(100vh - 80px);
+    margin-top: 80px;
+  }
+
+  .brand-container {
+    text-align: left;
+    margin: 0;
+    padding-top: 0;
+    position: relative;
+  }
+
+  .logo-gradient {
+    font-size: 5.5rem;
+    margin-top: 0;
+    padding-top: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+    padding-left: 160px; /* Espaço para a logo */
+  }
+
+  .logo-overlay {
+    left: 0;
+    transform: translateY(-50%);
+    height: 1.6em;
+    width: auto;
+    animation: logo-float 2.8s ease-in-out infinite alternate;
+  }
+
+  @keyframes logo-float {
+    0%, 100% {
+      transform: translateY(-50%) rotate(-4deg) scale(1);
+    }
+    50% {
+      transform: translateY(-55%) rotate(0deg) scale(1.03);
+    }
+  }
+
+  .slogan {
+    font-size: 1.8rem;
+    max-width: 600px;
+    margin: 1.5rem 0 0 160px; /* Alinhamento com o texto */
+    line-height: 1.4;
+  }
+
+  .tech-badge {
+    margin: 2rem 0 0 160px;
+    font-size: 1.1rem;
+    padding: 0.8rem 2.2rem;
+  }
+
+  .scroll-down-arrow {
+    bottom: 3rem;
+    margin-bottom: 0;
+    font-size: 2.5rem;
+    left: 160px;
+    transform: none;
+    animation: bounce 2s infinite;
+  }
+
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .brand-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start; /* Alinhar conteúdo no topo */
+    margin-top: 8%;
+    margin-left: -15%;
+    
+  }
+
+  .logo-gradient {
+    font-size: 6.5rem;
+    margin-top: 5%; /* Reduzir margem superior */
+    transform: scale(1.1); /* Subir 20% */
+    
+  }
+
+  .logo-overlay {
+    margin-left: 62%;
+    margin-top: -20%;
+  
+  }
+
+  @keyframes logo-float {
+    0%, 100% {
+      transform: translate(-50%, -50%) rotate(-4deg) scale(1);
+    }
+    50% {
+      transform: translate(-50%, -55%) rotate(0deg) scale(1.03);
+    }
+  }
+
+  .slogan {
+    margin-left: 13%;
+    font-size: 2rem;
+    max-width: 700px;
+    text-align: center;
+  }
+
+  .tech-badge {
+    margin-left: 13%;
+    transform: none;
+  }
+
+.scroll-down-arrow {
+  left: 55%;
+  transform: translateX(-50%) translateY(50%); /* Adicionado translateY */
+  position: absolute;
+  bottom: -55%; /* Ajuste este valor conforme necessário */
+  animation: bounce 2s infinite;
+}
+}
+
+/* ======================
+   CARDS DE CONTEÚDO
+   ====================== */
+.mission-card {
+  margin-top: 65%;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.mission-card:hover {
+  border-color: rgba(190, 0, 255, 0.4);
+  box-shadow: 0 5px 15px rgba(190, 0, 255, 0.1);
+}
+
+.mission-card h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.mission-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.motto {
+  display: flex;
+  align-items: center;
+  margin-top: 1.5rem;
+  padding: 1rem;
+  background: rgba(190, 0, 255, 0.12);
+  border-left: 4px solid #be00ff;
+  border-radius: 0 10px 10px 0;
+}
+
+.motto i {
+  font-size: 1.5rem;
+  color: #be00ff;
+  margin-right: 1rem;
+}
+
+.motto p {
+  margin: 0;
+  font-style: italic;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+
+.pulse-effect {
+  width: 70px;
+  height: 70px;
+  background: rgba(190, 0, 255, 0.25);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  animation: pulse 2.2s infinite ease-out;
+}
+
+.pulse-effect i {
+  font-size: 1.8rem;
+  color: #be00ff;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(190, 0, 255, 0.8);
+  }
+  70% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 15px rgba(190, 0, 255, 0);
+  }
+  100% {
+    transform: scale(0.96);
+    box-shadow: 0 0 0 0 rgba(190, 0, 255, 0);
+  }
+}
+
+/* Novos Estilos */
+.indication-steps {
+  margin: 2rem 0;
+}
+
+.step {
+  display: flex;
+  gap: 1.5rem;
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: rgba(190, 0, 255, 0.08);
+  border-radius: 10px;
+}
+
+.step-icon {
+  font-size: 1.8rem;
+  color: #be00ff;
+  min-width: 50px;
+}
+
+
+.counter-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 3rem;
+}
+
+.indication-highlights {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background: rgba(190, 0, 255, 0.05);
+  border-radius: 8px;
+}
+
+.cta-button {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2rem auto !important;
+  width: fit-content;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #be00ff, #9d00ff);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(190, 0, 255, 0.3);
+}
+.legal-info {
+  margin-top: 1.5rem;
+  text-align: center;
+  opacity: 0.8;
+}
+
+
+
+/* ======================
+   SELOS DE QUALIDADE
+   ====================== */
+.badges-container {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+}
+
+.quality-badge {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(190, 0, 255, 0.1);
+  border: 2px solid #be00ff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.badge-icon {
+  font-size: 2rem;
+  color: #be00ff;
+  margin-bottom: 0.5rem;
+}
+
+.badge-label {
+  font-size: 0.8rem;
+  color: white;
+  font-weight: 500;
+  text-align: center;
+}
+
+/* ======================
+   RESPONSIVIDADE - CARDS
+   ====================== */
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  .mission-card {
+    margin-top: 30%;
+    padding: 2rem;
+  }
+
+  .mission-card h2 {
+    font-size: 2.2rem;
+  }
+
+  .mission-text {
+    font-size: 1.1rem;
+  }
+
+  .cta-button {
+    margin: 2rem auto;
+    padding: 1rem 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .badges-container {
+    justify-content: flex-start;
+    gap: 2rem;
+  }
+
+  .quality-badge {
+    width: 140px;
+    height: 140px;
+  }
+
+  .badge-icon {
+    font-size: 2.2rem;
+  }
+
+  .motto {
+    padding: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .motto p {
+    font-size: 1.1rem;
+  }
+}
+
+/* Desktop (1200px+) */
+@media (min-width: 1200px) {
+  .mission-card {
+    margin-top: 20%;
+    padding: 3rem;
+  }
+
+  .mission-card h2 {
+    font-size: 2.5rem;
+  }
+
+  .mission-text {
+    font-size: 1.5rem;
+    line-height: 1.8;
+  }
+
+.cta-button {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  margin: 2rem auto !important;
+  width: fit-content;
+  padding: 12px 28px;
+  background: linear-gradient(135deg, #be00ff, #9d00ff);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(190, 0, 255, 0.3);
+}
+
+  .quality-badge {
+    width: 160px;
+    height: 160px;
+    margin-left: 22%;
+  }
+
+  .badge-icon {
+    font-size: 3rem;
+  
+  }
+
+  .badge-label {
+    font-size: 0.7rem;
+  }
+
+  .pulse-effect {
+    width: 85px;
+    height: 85px;
+    margin-bottom: 2rem;
+  }
+
+  .pulse-effect i {
+    font-size: 2.2rem;
+  }
+
+  .indication-card h3 {
+    font-size: 1.8rem;
+  }
+
+  .highlight {
+    font-size: 1.2rem;
+  }
+
+  .motto {
+    padding: 2rem;
+    border-left-width: 6px;
+  }
+
+  .motto i {
+    font-size: 1.8rem;
+  }
+
+  .motto p {
+    font-size: 1.2rem;
+  }
+}
+
+/* Animação ajustada para desktop */
+@media (min-width: 768px) {
+  @keyframes pulse {
+    0% {
+      transform: scale(0.98);
+      box-shadow: 0 0 0 0 rgba(190, 0, 255, 0.8);
+    }
+    70% {
+      transform: scale(1.1);
+      box-shadow: 0 0 0 25px rgba(190, 0, 255, 0);
+    }
+    100% {
+      transform: scale(0.98);
+      box-shadow: 0 0 0 0 rgba(190, 0, 255, 0);
+    }
+  }
+}
+
+/* ======================
+   EQUIPE
+   ====================== */
+/* ======================
+   TÍTULO DA EQUIPE
+   ====================== */
+.team-title {
+  text-align: center;
+  font-size: 2.5rem;
+  margin: 2rem 0 3rem;
+  color: white;
+  position: relative;
+  display: inline-block;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(190, 0, 255, 0.4);
+  padding: 0 1.5rem;
+}
+
+/* Efeito opcional de sublinhado decorativo */
+.team-title::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #be00ff, transparent);
+  box-shadow: 0 0 10px rgba(190, 0, 255, 0.6);
+}
+
+/* Versão mobile */
+@media (max-width: 768px) {
+  .team-title {
+    font-size: 2rem;
+    margin: 1.5rem 0 2.5rem;
+  }
+}
+
+
+/* Estilos para a seção de biografia */
+.member-avatar {
+  width: 120px;
+  height: 120px;
+  margin: 0 auto 1rem;
+  position: relative;
+  border-radius: 50%;
+}
+
+.member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 2;
+  border: 3px solid rgba(190, 0, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.photo-border {
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border-radius: 50%;
+  background: linear-gradient(45deg, #be00ff, #9d00ff, #be00ff);
+  background-size: 200% 200%;
+  animation: gradientBorder 4s ease infinite;
+  z-index: 1;
+  opacity: 0.7;
+}
+
+@keyframes gradientBorder {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.team-member:hover .member-photo {
+  transform: scale(1.05);
+  border-color: rgba(190, 0, 255, 0.6);
+}
+
+/* Efeito de brilho no hover */
+.team-member:hover .photo-border {
+  opacity: 0.9;
+  box-shadow: 0 0 20px rgba(190, 0, 255, 0.4);
+}
+
+/* ======================
+   CARD DE MEMBRO DA EQUIPE
+   ====================== */
+.team-member {
+  background: rgba(26, 5, 33, 0.7);
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(190, 0, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  max-width: 300px;
+  margin: 0 auto 3rem; /* ADICIONE ESTA MARGEM INFERIOR */
+}
+
+.team-member::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(190,0,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+
+/* Avatar e Foto */
+.member-avatar {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.member-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  position: relative;
+  z-index: 3;
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+  filter: grayscale(20%);
+}
+
+.photo-border {
+  position: absolute;
+  top: -6px;
+  left: -6px;
+  right: -6px;
+  bottom: -6px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #be00ff, #9d00ff, #be00ff);
+  background-size: 200% 200%;
+  animation: gradientPulse 6s ease infinite;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+@keyframes gradientPulse {
+  0%, 100% { 
+    background-position: 0% 50%;
+    transform: scale(1);
+  }
+  50% { 
+    background-position: 100% 50%;
+    transform: scale(1.02);
+  }
+}
+
+
+
+/* Textos e Informações */
+.team-member h4 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+  color: white;
+  position: relative;
+  display: inline-block;
+}
+
+
+
+.member-role {
+  color: #be00ff;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.member-bio {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+/* Tecnologias */
+.member-tech {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  margin: 1.5rem 0;
+}
+
+.tech-pill {
+  background: rgba(190, 0, 255, 0.1);
+  border: 1px solid rgba(190, 0, 255, 0.4);
+  border-radius: 20px;
+  padding: 0.4rem 1rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+
+
+/* Detalhes */
+.member-detail {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 1.5rem;
+  text-align: left;
+  line-height: 1.6;
+}
+
+.member-detail i {
+  color: #be00ff;
+  margin-right: 0.7rem;
+  width: 1.2rem;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+
+
+
+/* ======================
+   EQUIPE - VERSÃO DESKTOP (2 COLUNAS)
+   ====================== */
+@media (min-width: 768px) {
+  .team-section {
+    margin-top: 6rem;
+    padding: 0 2rem;
+  }
+
+  .team-title {
+    font-size: 3rem;
+    margin-bottom: 4rem;
+  }
+
+  .team-members {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mudado de 4 para 2 colunas */
+    gap: 3rem; /* Aumentado o espaçamento */
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .team-member {
+    max-width: 600px; /* Aumentado o tamanho máximo */
+    margin: 0 auto;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 650px; /* Altura mínima para uniformidade */
+  }
+
+  .member-avatar {
+    width: 200px;
+    height: 200px;
+    margin-bottom: 2.5rem;
+  }
+
+  .member-photo {
+    border-width: 4px;
+  }
+
+  .member-bio {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: auto; /* Empurra o conteúdo para cima */
+  }
+
+  .member-tech {
+    gap: 1.2rem;
+    margin: 2.5rem 0;
+  }
+
+  .tech-pill {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+  }
+
+  .member-detail {
+    font-size: 0.95rem;
+    padding-top: 1.5rem;
+  }
+
+  /* Efeito hover mais pronunciado */
+  .team-member:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(190, 0, 255, 0.25);
+  }
+}
+
+/* Ajustes para telas maiores (1200px+) */
+@media (min-width: 1200px) {
+  .team-members {
+    gap: 4rem;
+    max-width: 1600px;
+    margin-bottom: 15%;
+  }
+
+  .team-member {
+    min-height: 700px;
+    padding: 3rem;
+  }
+
+  .member-avatar {
+    width: 220px;
+    height: 220px;
+  }
+
+  .team-member h4 {
+    font-size: 1.8rem;
+  }
+
+  .member-role {
+    font-size: 1.1rem;
+  }
+
+  .member-bio {
+    font-size: 1.15rem;
+  }
+}
+
+
+
+
+
+
+/* ================
+== Projetos ==
+===================*/
+/* ======================
+   SEÇÃO PROJETOS
+   ====================== */
+#projetos {
+  background: black;
+  padding: 6rem 1rem;
+  position: relative;
+  overflow: hidden;
+  margin-top: 10%;
+
+}
+
+#projetos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: black;  
+  z-index: 0;
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cabeçalho da seção */
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.section-header h2 {
+  font-size: 2.8rem;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(190, 0, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #be00ff, transparent);
+  margin: 1.5rem auto;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(190, 0, 255, 0.5);
+}
+
+/* Filtros de projetos */
+.projects-filter {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+.filter-btn {
+  padding: 0.7rem 1.8rem;
+  background: transparent;
+  border: 1px solid rgba(190, 0, 255, 0.4);
+  border-radius: 50px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-btn:hover {
+  color: white;
+  border-color: #be00ff;
+  box-shadow: 0 0 10px rgba(190, 0, 255, 0.3);
+}
+
+.filter-btn.active {
+  background: linear-gradient(135deg, #be00ff, #9d00ff);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 0 15px rgba(190, 0, 255, 0.4);
+}
+
+/* Grid de projetos */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+}
+
+/* Cards de projeto */
+.project-card {
+  background: rgba(26, 5, 33, 0.7);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(190, 0, 255, 0.3);
+  position: relative;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(190, 0, 255, 0.15);
+  border-color: rgba(190, 0, 255, 0.6);
+}
+
+.project-image {
+  position: relative;
+  overflow: hidden;
+  height: 250px;
+}
+
+.project-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image img {
+  transform: scale(1.05);
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(13, 3, 20, 0.9), transparent);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 1.5rem;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  background: rgba(190, 0, 255, 0.2);
+  color: white;
+  padding: 0.4rem 0.8rem;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  border: 1px solid rgba(190, 0, 255, 0.4);
+}
+
+.project-info {
+  padding: 1.5rem;
+}
+
+.project-info h3 {
+  color: white;
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+}
+
+.project-info h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: #be00ff;
+  transition: width 0.3s ease;
+}
+
+.project-card:hover .project-info h3::after {
+  width: 60px;
+}
+
+.project-info p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
+
+.project-link {
+  color: #be00ff;
+  text-decoration: none;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  transition: all 0.3s ease;
+}
+
+.project-link i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.project-link:hover {
+  color: white;
+  text-shadow: 0 0 8px rgba(190, 0, 255, 0.5);
+}
+
+.project-link:hover i {
+  transform: translateX(5px);
+}
+
+/* Call to Action */
+.projects-cta {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.projects-cta p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 1rem 2.5rem;
+  background: linear-gradient(135deg, #be00ff, #9d00ff);
+  color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(190, 0, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(190, 0, 255, 0.4);
+}
+
+.cta-button i {
+  margin-left: 0.5rem;
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  #projetos {
+    padding: 4rem 1rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-image {
+    height: 200px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .projects-filter {
+    gap: 0.5rem;
+  }
+  
+  .filter-btn {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .projects-cta p {
+    font-size: 1rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* ================
+==== produtos =====
+===================*/
+/* Seção Produtos */
+/* ======================
+   SEÇÃO PRODUTOS
+   ====================== */
+#produtos {
+  background: black;
+  color: white;
+  padding: 5rem 1rem;
+  position: relative;
+  overflow: hidden;
+
+}
+
+#produtos::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.section-header h2 {
+  font-size: 2.8rem;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(190, 0, 255, 0.4);
+  margin-bottom: 1rem;
+}
+
+.products-main-title {
+  font-size: 2.8rem;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(190, 0, 255, 0.4);
+  margin: 3rem 0 1rem 0; /* top right bottom left */
+  text-align: center;
+}
+
+.section-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.divider {
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, transparent, #be00ff, transparent);
+  margin: 1.5rem auto;
+  border-radius: 2px;
+  box-shadow: 0 0 15px rgba(190, 0, 255, 0.5);
+}
+
+/* Grid de Produtos */
+.products-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-bottom: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* Cards de Produto */
+.product-card {
+  background: rgba(26, 5, 33, 0.7);
+  border-radius: 12px;
+  padding: 2rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid rgba(190, 0, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(190,0,255,0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(190, 0, 255, 0.15);
+  border-color: rgba(190, 0, 255, 0.5);
+}
+
+.product-card:hover::before {
+  opacity: 1;
+}
+
+.product-card.featured {
+  border: 1px solid #be00ff;
+  box-shadow: 0 0 30px rgba(190, 0, 255, 0.2);
+}
+
+/* Ícones dos Produtos */
+.product-icon {
+  font-size: 2.8rem;
+  color: #be00ff;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  filter: drop-shadow(0 0 8px rgba(190, 0, 255, 0.5));
+}
+
+.icon-background {
+  position: absolute;
+  top: -15px;
+  left: -15px;
+  right: -15px;
+  bottom: -15px;
+  background: rgba(190, 0, 255, 0.1);
+  border-radius: 50%;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.product-card:hover .icon-background {
+  opacity: 1;
+}
+
+/* Conteúdo dos Cards */
+.product-card h3 {
+  font-size: 1.6rem;
+  color: white;
+  margin-bottom: 1rem;
+  position: relative;
+  display: inline-block;
+}
+
+.product-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 50px;
+  height: 2px;
+  background: #be00ff;
+  transition: width 0.3s ease;
+}
+
+.product-card:hover h3::after {
+  width: 80px;
+}
+
+.product-description {
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Lista de Features */
+.product-features ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.product-features li {
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.95rem;
+}
+
+.product-features i {
+  color: #be00ff;
+  margin-right: 0.8rem;
+  font-size: 0.9rem;
+  margin-top: 0.2rem;
+  filter: drop-shadow(0 0 3px rgba(190, 0, 255, 0.5));
+}
+
+/* Badges */
+.product-badge {
+  position: absolute;
+  top: 20px;
+  right: -35px;
+  background: linear-gradient(135deg, #be00ff, #9d00ff);
+  color: white;
+  padding: 0.3rem 2.5rem;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: 600;
+  width: 140px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(190, 0, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.product-badge.primary {
+  background: linear-gradient(135deg, #ff00cc, #be00ff);
+}
+
+/* Processo de Desenvolvimento */
+.development-process {
+  margin: 5rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.development-process h3 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 3rem;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  display: inline-block;
+}
+
+.process-steps {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.process-step {
+  flex: 1;
+  min-width: 150px;
+  position: relative;
+}
+
+.process-step::after {
+  content: '';
+  position: absolute;
+  top: 25px;
+  left: calc(50% + 25px);
+  width: calc(100% - 50px);
+  height: 2px;
+  background: linear-gradient(90deg, #be00ff, transparent);
+  z-index: 0;
+}
+
+.process-step:last-child::after {
+  display: none;
+}
+
+.step-number {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #be00ff, #9d00ff);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  margin: 0 auto 1rem;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 15px rgba(190, 0, 255, 0.3);
+}
+
+.process-step h4 {
+  color: white;
+  margin-bottom: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.process-step p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* Diferenciais */
+.differentiators {
+  margin-top: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.differentiators h3 {
+  text-align: center;
+  font-size: 2rem;
+  color: white;
+  margin-bottom: 3rem;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.differentiators-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.differentiator-card {
+  background: rgba(26, 5, 33, 0.7);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: all 0.4s ease;
+  border: 1px solid rgba(190, 0, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+}
+
+.differentiator-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 0%, rgba(190, 0, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.differentiator-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 25px rgba(190, 0, 255, 0.1);
+  border-color: rgba(190, 0, 255, 0.5);
+}
+
+.differentiator-card:hover::before {
+  opacity: 1;
+}
+
+.differentiator-card i {
+  font-size: 2.5rem;
+  color: #be00ff;
+  margin-bottom: 1.5rem;
+  filter: drop-shadow(0 0 8px rgba(190, 0, 255, 0.5));
+  transition: all 0.3s ease;
+}
+
+.differentiator-card:hover i {
+  transform: scale(1.1);
+}
+
+.differentiator-card h4 {
+  color: white;
+  margin-bottom: 1rem;
+  font-size: 1.3rem;
+  position: relative;
+}
+
+.differentiator-card h4::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: #be00ff;
+  transition: width 0.3s ease;
+}
+
+.differentiator-card:hover h4::after {
+  width: 60px;
+}
+
+.differentiator-card p {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.7;
+  font-size: 0.95rem;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #produtos {
+    padding: 3rem 1rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2.2rem;
+  }
+  
+  .products-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .process-steps {
+    flex-direction: column;
+    gap: 3rem;
+  }
+  
+  .process-step::after {
+    top: auto;
+    left: 50%;
+    bottom: -30px;
+    width: 2px;
+    height: 30px;
+    background: linear-gradient(180deg, #be00ff, transparent);
+  }
+  
+  .differentiators-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-header h2 {
+    font-size: 1.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+  }
+  
+  .product-card {
+    padding: 1.5rem;
+  }
+  
+  .development-process h3,
+  .differentiators h3 {
+    font-size: 1.6rem;
+  }
+}
+
+/* ================
+=== Formulario ====
+===================*/
+/* ======================
+   SEÇÃO FORMULÁRIO
+   ====================== */
+#formulario {
+  background: black;
+  padding: 6rem 1rem;
+  position: relative;
+  overflow: hidden;
+
+}
+
+#formulario::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+/* Container do Formulário */
+.indication-form {
+  background: rgba(26, 5, 33, 0.8);
+  border-radius: 15px;
+  padding: 3rem;
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Seções do Formulário */
+.form-section {
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+}
+
+.form-section:last-child {
+  border-bottom: none;
+  margin-bottom: 1rem;
+  padding-bottom: 0;
+}
+
+.form-section h2 {
+  color: #be00ff;
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  padding-bottom: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Grupos de Campos */
+.form-group {
+  margin-bottom: 1.8rem;
+  position: relative;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Campos de Input */
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: rgba(15, 2, 24, 0.7);
+  border: 1px solid rgba(190, 0, 255, 0.3);
+  border-radius: 8px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1rem;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #be00ff;
+  box-shadow: 0 0 0 3px rgba(190, 0, 255, 0.2);
+  background: rgba(15, 2, 24, 0.9);
+}
+
+.form-group textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+/* Layout de Colunas */
+.form-row {
+  display: flex;
+  gap: 2rem;
+}
+
+.half-width {
+  flex: 1;
+}
+
+/* Dicas/Textos Auxiliares */
+.hint {
+  font-size: 0.85rem;
+  color: rgba(190, 0, 255, 0.8);
+  margin-top: 0.5rem;
+  display: block;
+  font-style: italic;
+}
+
+/* Checkboxes */
+.checkbox-group {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.2rem;
+}
+
+.checkbox-group input {
+  margin-right: 1rem;
+  width: auto;
+  accent-color: #be00ff;
+}
+
+.checkbox-group label {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 400;
+}
+
+.checkbox-group a {
+  color: #be00ff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.checkbox-group a:hover {
+  text-decoration: underline;
+  text-shadow: 0 0 8px rgba(190, 0, 255, 0.5);
+}
+
+/* Botão de Envio */
+.form-actions {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #be00ff, #9d00ff);
+  color: white;
+  border: none;
+  padding: 1.2rem 3.5rem;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  font-weight: 600;
+  box-shadow: 0 5px 20px rgba(190, 0, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(190, 0, 255, 0.5);
+}
+
+.submit-btn:active {
+  transform: translateY(1px);
+}
+
+.submit-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.6s ease;
+}
+
+.submit-btn:hover::before {
+  left: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  #formulario {
+    padding: 4rem 1rem;
+  }
+  
+  .indication-form {
+    padding: 2rem;
+  }
+  
+  .form-row {
+    flex-direction: column;
+    gap: 0;
+  }
+  
+  .form-section h2 {
+    font-size: 1.5rem;
+  }
+  
+  .submit-btn {
+    width: 100%;
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .indication-form {
+    padding: 1.5rem;
+  }
+  
+  .form-section h2 {
+    font-size: 1.3rem;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    padding: 0.8rem 1.2rem;
+  }
+}
+
+/* ======================
+   SEÇÃO FAQ
+   ====================== */
+#faq {
+  margin-top: 15%;
+  background: black;
+  color: white;
+  padding: 4rem 1rem;
+
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2.8rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #be00ff, #ffffff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 15px rgba(190, 0, 255, 0.4);
+}
+
+.section-subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 3rem;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.faq-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.faq-group {
+  margin-bottom: 3rem;
+}
+
+.faq-group-title {
+  font-size: 1.5rem;
+  color: #be00ff;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid rgba(190, 0, 255, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.faq-group-title i {
+  font-size: 1.3rem;
+}
+
+.faq-item {
+  background: rgba(26, 5, 33, 0.6);
+  border: 1px solid rgba(190, 0, 255, 0.2);
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(190, 0, 255, 0.4);
+  box-shadow: 0 0 15px rgba(190, 0, 255, 0.1);
+}
+
+.faq-question {
+  padding: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+}
+
+.faq-question:hover {
+  color: #ffffff;
+  background: rgba(190, 0, 255, 0.1);
+}
+
+.faq-question i {
+  color: #be00ff;
+  transition: transform 0.3s ease;
+}
+
+.faq-answer {
+  padding: 0 1.5rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.7;
+  border-top: 1px solid transparent;
+}
+
+.faq-answer p {
+  margin-bottom: 1.5rem;
+}
+
+.faq-answer a {
+  color: #be00ff;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.faq-answer a:hover {
+  text-decoration: underline;
+}
+
+/* Item ativo (quando aberto) */
+.faq-item.active .faq-question {
+  color: white;
+  background: rgba(190, 0, 255, 0.15);
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-item.active .faq-answer {
+  max-height: 500px;
+  padding: 0 1.5rem 1.5rem;
+  border-top: 1px solid rgba(190, 0, 255, 0.2);
+}
+
+/* CTA Final */
+.faq-cta {
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.faq-cta p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  #faq {
+    padding: 3rem 1rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+  
+  .section-subtitle {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .faq-question {
+    padding: 1.2rem;
+    font-size: 1rem;
+  }
+  
+  .faq-group-title {
+    font-size: 1.3rem;
+  }
+}
+
+
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="hamburger-menu" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+      <div class="navbar-brand">Codjems</div>
+      <div></div>
+      <!-- Espaço vazio para alinhamento -->
+
+      <div class="nav-links" id="navLinks">
+        <a href="#inicio"><i class="fas fa-home"></i> Início</a>
+        <a href="#projetos"><i class="fas fa-hand-holding-usd"></i>Projetos</a>
+        <a href="#produtos"><i class="fas fa-gem"></i> Produtos</a>
+        <a href="#formulario"><i class="fas fa-envelope"></i> Formulário</a>
+        <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
+      </div>
+    </nav>
+
+    <!-- Seção Início Atualizada -->
+    <section id="inicio" class="page-section">
+      <div class="container">
+        <div class="hero-grid">
+          <!-- Logo e Slogan -->
+          <div class="brand-container">
+            <h1 class="logo-gradient">
+              Cod<span class="j-logo">J</span>ems
+              <img
+                src="/imagens/logo.png"
+                alt="Elemento gráfico CodJems"
+                class="logo-overlay"
+              />
+            </h1>
+            <p class="slogan">Soluções Tecnológicas</p>
+            <div class="tech-badge">
+              <span>Transformando ideias em jóias digitais</span>
+            </div>
+            <a class="scroll-down-arrow">
+              <i class="fas fa-chevron-down"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Conteúdo Principal -->
+        <div class="hero-content">
+          <div class="mission-card">
+            <h2>Construindo Jóias Digitais</h2>
+            <p class="mission-text">
+              Nascida da ideia de que indicações devem ser recompensadas, a
+              CodJems foi fundada por 4 universitários apaixonados por
+              transformar problemas reais em soluções digitais valiosas.
+            </p>
+
+            <!-- Substitua as imagens por este código -->
+            <div class="badges-container">
+              <!-- Selo de Qualidade -->
+              <div class="quality-badge">
+                <div class="badge-icon">
+                  <i class="fas fa-award"></i>
+                </div>
+                <span class="badge-label">Qualidade Garantida</span>
+                <div class="badge-glow"></div>
+              </div>
+
+              <!-- Selo de Inovação -->
+              <div class="quality-badge innovation">
+                <div class="badge-icon">
+                  <i class="fas fa-rocket"></i>
+                </div>
+                <span class="badge-label">Inovação Contínua</span>
+                <div class="badge-glow"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Seção dos Participantes -->
+          <div class="team-section">
+            <h3 class="team-title">Nossa Equipe</h3>
+            <div class="team-members">
+              <!-- Seu Perfil -->
+              <div class="team-member">
+                <div class="member-avatar">
+                  <img
+                    src="imagens/sandy-foto.jpeg"
+                    alt="Sandy - Fundadora & Designer"
+                    class="member-photo"
+                  />
+                  <div class="photo-border"></div>
+                </div>
+
+                <h4>Sandy</h4>
+                <p class="member-role">Fundadora & Designer</p>
+
+                <div class="member-bio">
+                  <p>
+                    Transformo ideias em experiências visuais que conectam, comunicam e inspiram. 
+                    Unindo design e estratégia, ajudo marcas a expressarem sua essência com autenticidade.
+                  </p>
+
+                  <div class="member-tech">
+                    <span class="tech-pill">Figma</span>
+                    <span class="tech-pill">Canva</span>
+                    <span class="tech-pill">CorelDRAW</span>
+                  </div>
+
+                  <p class="member-detail">
+                    <i class="fas fa-graduation-cap"></i> Eng. Energias
+                    UNILAB<br />
+                    <i class="fas fa-store"></i>Coordenadora de marketing do Genes e EvoPlastics
+                  </p>
+                </div>
+              </div>
+              <!-- Seu Perfil -->
+              <div class="team-member">
+                <div class="member-avatar">
+                  <img
+                    src="imagens/marx-foto.jpg"
+                    alt="marx - Fundador & Full Stack"
+                    class="member-photo"
+                  />
+                  <div class="photo-border"></div>
+                </div>
+
+                <h4>Marx</h4>
+                <p class="member-role">Fundador & Full Stack</p>
+
+                <div class="member-bio">
+                  <p>
+                    experiência sólida em desenvolvimento web, atuando em diversas frentes, como no desenvolvimento e manutenção de sites institucionais
+                  </p>
+
+                  <div class="member-tech">
+                    <span class="tech-pill">Full stack</span>
+                    <span class="tech-pill">React</span>
+                    <span class="tech-pill">Node.js</span>
+                    <span
+                    class="tech-pill">Prisma</span>
+                  </div>
+
+                  <p class="member-detail">
+                    <i class="fas fa-graduation-cap"></i> Eng. Computação
+                    UNILAB<br />
+                    <i class="fas fa-trophy"></i> Curso Avanti Capacita Brasil<br />
+                    <i class="fas fa-store"></i> Projeto Florescer
+                  </p>
+                </div>
+              </div>
+              <!-- Seu Perfil -->
+              <div class="team-member">
+                <div class="member-avatar">
+                  <img
+                    src="imagens/julio-foto.jpg"
+                    alt="Júlio - Fundador & Administrador de Banco de Dados"
+                    class="member-photo"
+                  />
+                  <div class="photo-border"></div>
+                </div>
+
+                <h4>Júlio</h4>
+                <p class="member-role">Fundador & Administrador de Banco de Dados</p>
+
+                <div class="member-bio">
+                  <p>
+                    Tem conhecimento em estruturas relacionais,backups, restaurações e monitoramento de desempenho,além de aplicar boas práticas de segurança e integridade dos dados
+                  </p>
+
+                  <div class="member-tech">
+                    <span class="tech-pill">SQL</span>
+                    <span class="tech-pill">MySQL</span>
+                    <span class="tech-pill">Workbench</span>
+                    <span class="tech-pill">PHP</span>
+                  </div>
+
+                  <p class="member-detail">
+                    <i class="fas fa-graduation-cap"></i> Eng. Computação
+                    UNILAB<br />
+                    <i class="fas fa-trophy"></i>Técnico de informática<br />
+                  </p>
+                </div>
+              </div>
+              <!-- Seu Perfil -->
+              <div class="team-member">
+                <div class="member-avatar">
+                  <img
+                    src="imagens/estevao-foto.jpeg"
+                    alt="Estevão - Fundador & Full Stack"
+                    class="member-photo"
+                  />
+                  <div class="photo-border"></div>
+                </div>
+
+                <h4>Estevão</h4>
+                <p class="member-role">Fundador & Full Stack</p>
+
+                <div class="member-bio">
+                  <p>
+                    Com anos desenvolvendo soluções web completas, com foco em
+                    back-end e sistemas eficientes.
+                  </p>
+
+                  <div class="member-tech">
+                    <span class="tech-pill">Full stack</span>
+                    <span class="tech-pill">Automações</span>
+                    <span class="tech-pill">Python</span>
+                    <span class="tech-pill">SQL/NoSQL</span>
+                  </div>
+
+                  <p class="member-detail">
+                    <i class="fas fa-graduation-cap"></i> Eng. Computação
+                    UNILAB<br />
+                    <i class="fas fa-trophy"></i> Projetos acadêmicos
+                    premiados<br />
+                    <i class="fas fa-store"></i> E-commerce no Ar para Loja
+                    Infantil
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="indication-card">
+  <div class="pulse-effect">
+    <i class="fas fa-hand-holding-usd"></i>
+  </div>
+  
+  <h3>Seu Network Vale Dinheiro</h3>
+  
+  <div class="indication-steps">
+    <div class="step">
+      <div class="step-icon"><i class="fas fa-user-plus"></i></div>
+      <div class="step-content">
+        <h4>1. Indique Clientes</h4>
+        <p>Compartilhe nosso contato com empresas que precisam de soluções tecnológicas</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon"><i class="fas fa-handshake"></i></div>
+      <div class="step-content">
+        <h4>2. Nós Fechamos o Negócio</h4>
+        <p>Nossa equipe cuida de toda a negociação e desenvolvimento do projeto</p>
+      </div>
+    </div>
+
+    <div class="step">
+      <div class="step-icon"><i class="fas fa-coins"></i></div>
+      <div class="step-content">
+        <h4>3. Você Ganha Recompensas</h4>
+        <p>Receba <strong>5% a 15%</strong> do valor total de cada projeto concluído</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="indication-highlights">
+    <div class="highlight-item">
+      <i class="fas fa-clock"></i>
+      <p>Pagamento rápido em até 5 dias úteis, apos a entrega do projeto</p>
+    </div>
+    <div class="highlight-item">
+      <i class="fas fa-shield-alt"></i>
+      <p>Processo 100% seguro e transparente</p>
+    </div>
+  </div>
+
+  <a href="#formulario" class="cta-button">
+    Quero Indicar e Ganhar 
+    <i class="fas fa-arrow-right"></i>
+  </a>
+
+<div class="legal-info">
+    <p><small>* Valores mínimos de projetos aplicáveis. 
+        <a 
+            href="doc/contrato-indicacao-comercial.docx" 
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Ver regulamento completo
+            
+        </a>
+    </small></p>
+</div>
+        </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Projetos -->
+    <section id="projetos" class="page-section">
+  <div class="container">
+    <div class="section-header">
+      <h2>Nossos Projetos</h2>
+      <p class="section-subtitle">Jóias digitais que criamos com paixão e expertise</p>
+      <div class="divider"></div>
+    </div>
+
+    <div class="projects-filter">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
+      <button class="filter-btn" data-filter="sistemas">Sistemas</button>
+
+    </div>
+
+    <div class="projects-grid">
+      <!-- Projeto 1 -->
+      <div class="project-card" data-category="ecommerce">
+        <div class="project-image">
+          <img src="./imagens/Dicazo.webp" alt="Projeto Web">
+          <div class="project-overlay">
+            <div class="project-tags">
+              <span class="tag">Loja Virtual</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Loja de roupa infantil</h3>
+          <p>E-commerce completo com integração de pagamentos e gestão de estoque.</p>
+          <a href="https://dicazo.com.br" class="project-link">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Projeto 2 -->
+      <div class="project-card" data-category="sistemas">
+        <div class="project-image">
+          <img src="./imagens/Calculadora 3D.webp" alt="Calculadora 3D">
+          <div class="project-overlay">
+            <div class="project-tags">
+              <span class="tag">Ferramenta</span>
+              <span class="tag">Solução Financeira</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>Calculadora 3D</h3>
+          <p>Ferramenta completa para cálculo preciso de custos em impressões 3D.</p>
+          <a href="https://github.com/STV0-Junior/Calculadora-3D---Precifica-o-para-Impress-o" class="project-link">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Projeto 3 -->
+      <div class="project-card" data-category="sistemas">
+        <div class="project-image">
+          <img src="./imagens/FileOrganizer.webp" alt="Sistema Personalizado">
+          <div class="project-overlay">
+            <div class="project-tags">
+              <span class="tag">Ferramenta</span>
+              <span class="tag">Produtividade</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>FileOrganizer</h3>
+          <p>Ferramenta automatizada para organização de arquivos em categorias intuitivas.</p>
+          <a href="https://github.com/STV0-Junior/Organizador_de_arquivos" class="project-link">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Projeto 4 -->
+      <div class="project-card" data-category="web">
+        <div class="project-image">
+          <img src="./imagens/comind.png" alt="Aplicativo Mobile">
+          <div class="project-overlay">
+            <div class="project-tags">
+              <span class="tag">Site Institucional</span>
+              <span class="tag">Responsivo</span>
+            </div>
+          </div>
+        </div>
+        <div class="project-info">
+          <h3>CoMind</h3>
+          <p>O coMind é uma organização não governamental dedicada a oferecer apoio psicológico</p>
+          <a href="https://co-mind-front.vercel.app" class="project-link">Ver Detalhes <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+
+      <!-- Projeto 5 -->
+
+      </section>
+
+    <!-- Seção Produtos -->
+    <section id="produtos" class="page-section">
+      <div class="container">
+        <h2 class="products-main-title">Nossos Produtos</h2>
+        <div class="products-grid">
+          <!-- Produto 1: Landing Pages -->
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-window-maximize"></i>
+              <div class="icon-background"></div>
+            </div>
+            <h3>Landing Pages Premium</h3>
+            <p class="product-description">
+              Páginas de conversão otimizadas para capturar leads e aumentar
+              suas vendas, com design responsivo e alta performance.
+            </p>
+            <div class="product-features">
+              <ul>
+                <li>
+                  <i class="fas fa-check-circle"></i> Design 100% personalizado
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Integração com ferramentas
+                  de marketing
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Otimização para conversão
+                </li>
+                <li><i class="fas fa-check-circle"></i> Hospedagem incluída</li>
+              </ul>
+            </div>
+            <div class="product-badge">
+              <span>Mais vendido</span>
+            </div>
+          </div>
+
+          <!-- Produto 2: E-commerce -->
+          <div class="product-card featured">
+            <div class="product-icon">
+              <i class="fas fa-shopping-cart"></i>
+              <div class="icon-background"></div>
+            </div>
+            <h3>Lojas Virtuais Completas</h3>
+            <p class="product-description">
+              Soluções completas de e-commerce com painel administrativo,
+              gateway de pagamentos e gestão de estoque integrada.
+            </p>
+            <div class="product-features">
+              <ul>
+                <li>
+                  <i class="fas fa-check-circle"></i> Plataforma personalizável
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Integração com
+                  marketplaces
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Sistema de fretes e
+                  entregas
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Relatórios de vendas
+                </li>
+              </ul>
+            </div>
+            <div class="product-badge primary">
+              <span>Destaque</span>
+            </div>
+          </div>
+
+          <!-- Produto 3: Sistemas Web -->
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-laptop-code"></i>
+              <div class="icon-background"></div>
+            </div>
+            <h3>Sistemas Web Personalizados</h3>
+            <p class="product-description">
+              Desenvolvimento de sistemas sob medida para automatizar processos
+              do seu negócio e aumentar a produtividade.
+            </p>
+            <div class="product-features">
+              <ul>
+                <li>
+                  <i class="fas fa-check-circle"></i> Desenvolvimento 100%
+                  customizado
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Banco de dados seguro
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Painel administrativo
+                  completo
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Suporte técnico
+                  especializado
+                </li>
+              </ul>
+            </div>
+            <div class="product-badge">
+              <span>Sob demanda</span>
+            </div>
+          </div>
+
+          <!-- Produto 4: Automações -->
+          <div class="product-card">
+            <div class="product-icon">
+              <i class="fas fa-robot"></i>
+              <div class="icon-background"></div>
+            </div>
+            <h3>Automações Inteligentes</h3>
+            <p class="product-description">
+              Soluções para automatizar tarefas repetitivas, integrando sistemas
+              e otimizando o fluxo de trabalho da sua empresa.
+            </p>
+            <div class="product-features">
+              <ul>
+                <li>
+                  <i class="fas fa-check-circle"></i> Integração entre
+                  plataformas
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Processamento de dados
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Notificações automáticas
+                </li>
+                <li>
+                  <i class="fas fa-check-circle"></i> Relatórios periódicos
+                </li>
+              </ul>
+            </div>
+            <div class="product-badge">
+              <span>Eficiência</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Processo de Desenvolvimento -->
+        <div class="development-process">
+          <h3>Como criamos suas jóias digitais</h3>
+          <div class="process-steps">
+            <div class="process-step">
+              <div class="step-number">1</div>
+              <h4>Briefing</h4>
+              <p>Entendemos suas necessidades e objetivos</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">2</div>
+              <h4>Proposta</h4>
+              <p>Apresentamos a solução ideal para seu negócio</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">3</div>
+              <h4>Protótipo</h4>
+              <p>Desenvolvemos um MVP para validação</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">4</div>
+              <h4>Desenvolvimento</h4>
+              <p>Implementamos a solução completa</p>
+            </div>
+            <div class="process-step">
+              <div class="step-number">5</div>
+              <h4>Entrega</h4>
+              <p>Lançamento e treinamento para uso</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Diferenciais -->
+        <div class="differentiators">
+          <h3>O que nos diferencia</h3>
+          <div class="differentiators-grid">
+            <div class="differentiator-card">
+              <i class="fas fa-gem"></i>
+              <h4>Qualidade Premium</h4>
+              <p>
+                Cada projeto é tratado como uma joia única, com atenção aos
+                mínimos detalhes.
+              </p>
+            </div>
+            <div class="differentiator-card">
+              <i class="fas fa-clock"></i>
+              <h4>Entrega Rápida</h4>
+              <p>
+                Processos otimizados para entregar seu projeto no prazo
+                combinado.
+              </p>
+            </div>
+            <div class="differentiator-card">
+              <i class="fas fa-headset"></i>
+              <h4>Suporte Contínuo</h4>
+              <p>
+                Acompanhamento pós-entrega para garantir o perfeito
+                funcionamento.
+              </p>
+            </div>
+            <div class="differentiator-card">
+              <i class="fas fa-hand-holding-usd"></i>
+              <h4>Programa de Indicações</h4>
+              <p>Ganhe comissões por cada indicação que se tornar cliente.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Formulário -->
+    <section id="formulario" class="page-section">
+      <div class="container">
+        <form id="indicacaoForm" class="indication-form">
+          <section class="form-section">
+            <h2>Seus Dados (Indicador)</h2>
+
+            <div class="form-group">
+              <label for="primeiro-nome">Primeiro Nome*</label>
+              <input
+                type="text"
+                id="primeiro-nome"
+                name="primeiro-nome"
+                required
+                placeholder="Ex: João"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="sobrenome">Sobrenome*</label>
+              <input
+                type="text"
+                id="sobrenome"
+                name="sobrenome"
+                required
+                placeholder="Ex: Silva"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email">E-mail*</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                placeholder="seu@email.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="whatsapp">WhatsApp*</label>
+              <div class="input-with-hint">
+                <input
+                  type="tel"
+                  id="whatsapp"
+                  name="whatsapp"
+                  required
+                  placeholder="(00) 00000-0000"
+                />
+                <span class="hint">Será nosso principal contato</span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="conheceu">Como nos conheceu?*</label>
+              <select id="conheceu" name="conheceu" required>
+                <option value="">Selecione...</option>
+                <option value="redes-sociais">
+                  Redes Sociais (Instagram, Facebook, etc)
+                </option>
+                <option value="amigos">Indicação de Amigos</option>
+                <option value="publicidade">Anúncio Online</option>
+                <option value="parceiro">Parceiro Comercial</option>
+                <option value="outros">Outros</option>
+              </select>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h2>Dados do Comprador Indicado</h2>
+
+            <div class="form-row">
+              <div class="form-group half-width">
+                <label for="nome-indicado">Nome*</label>
+                <input
+                  type="text"
+                  id="nome-indicado"
+                  name="nome-indicado"
+                  required
+                  placeholder="Primeiro nome"
+                />
+              </div>
+
+              <div class="form-group half-width">
+                <label for="sobrenome-indicado">Sobrenome*</label>
+                <input
+                  type="text"
+                  id="sobrenome-indicado"
+                  name="sobrenome-indicado"
+                  required
+                  placeholder="Sobrenome"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="email-indicado">E-mail*</label>
+              <input
+                type="email"
+                id="email-indicado"
+                name="email-indicado"
+                required
+                placeholder="email@dominio.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="whatsapp-indicado">WhatsApp*</label>
+              <input
+                type="tel"
+                id="whatsapp-indicado"
+                name="whatsapp-indicado"
+                required
+                placeholder="(00) 00000-0000"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="tipo-projeto">Tipo de Projeto Desejado*</label>
+              <select id="tipo-projeto" name="tipo-projeto" required>
+                <option value="">Selecione o tipo de projeto...</option>
+                <option value="landing-page">
+                  Landing Page (Página de Captura)
+                </option>
+                <option value="site-institucional">Site Institucional</option>
+                <option value="e-commerce">Loja Virtual (E-commerce)</option>
+                <option value="automacao">Automação de Processos</option>
+                <option value="sistema">Sistema Personalizado</option>
+                <option value="outro">Outro Tipo de Projeto</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="descricao-projeto">Breve Descrição do Projeto*</label>
+              <textarea
+                id="descricao-projeto"
+                name="descricao-projeto"
+                required
+                placeholder="Ex: Preciso de um e-commerce para vender produtos artesanais..."
+                rows="3"
+              ></textarea>
+              <p class="hint">
+                Descreva em poucas palavras o que o comprador precisa
+              </p>
+            </div>
+          </section>
+
+          <section class="form-section">
+            <h2>Autorizações</h2>
+            <div class="form-group checkbox-group">
+              <input
+                type="checkbox"
+                id="autoriza-contato"
+                name="autoriza-contato"
+                required
+              />
+              <label for="autoriza-contato"
+                >Autorizo o contato da Codjems com o indicado</label
+              >
+            </div>
+
+            <div class="form-group checkbox-group">
+              <input
+                type="checkbox"
+                id="aceita-termos"
+                name="aceita-termos"
+                required
+              />
+              <label for="aceita-termos"
+                >Concordo com os <a href="#">termos do programa</a> de
+                indicações</label
+              >
+            </div>
+
+            <div class="form-group checkbox-group">
+              <input
+                type="checkbox"
+                id="autoriza-dados"
+                name="autoriza-dados"
+                required
+              />
+              <label for="autoriza-dados"
+                >Autorizo o uso dos meus dados para pagamento de
+                comissões</label
+              >
+            </div>
+          </section>
+
+          <div class="form-actions">
+            <button type="submit" class="submit-btn">ENVIAR INDICAÇÃO</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Seção FAQ -->
+    <section id="faq" class="page-section">
+      <div class="container">
+        <h2 class="section-title">Perguntas Frequentes</h2>
+        <p class="section-subtitle">
+          Tire suas dúvidas sobre nosso programa de indicações
+        </p>
+
+        <div class="faq-container">
+          <!-- Grupo 1: Sobre o Programa -->
+          <div class="faq-group">
+            <h3 class="faq-group-title">
+              <i class="fas fa-info-circle"></i> Sobre o Programa
+            </h3>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>1. Como funciona o programa de indicações?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Nosso programa recompensa indicações bem-sucedidas. Quando
+                  você indica um cliente que contrata nossos serviços, você
+                  recebe uma comissão sobre o valor do projeto.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>2. Quanto posso ganhar por indicação?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  A comissão varia de 5% a 15% do valor do projeto, dependendo
+                  do tipo de serviço contratado. Valores exatos são informados
+                  no momento da indicação.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grupo 2: Pagamentos -->
+          <div class="faq-group">
+            <h3 class="faq-group-title">
+              <i class="fas fa-money-bill-wave"></i> Pagamentos
+            </h3>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>3. Quando recebo minha comissão?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  O pagamento é realizado 15 dias após o cliente indicado
+                  efetuar o pagamento integral do projeto.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>4. Quais são as formas de pagamento?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Pagamos via PIX, transferência bancária ou PayPal. Você
+                  escolhe no momento do cadastro.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grupo 3: Processo de Indicação -->
+          <div class="faq-group">
+            <h3 class="faq-group-title">
+              <i class="fas fa-user-friends"></i> Processo de Indicação
+            </h3>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>5. Como faço para indicar alguém?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Basta preencher nosso
+                  <a href="#formulario">formulário de indicação</a> com os dados
+                  do cliente potencial. Nós entramos em contato com ele e
+                  cuidamos de todo o processo.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>6. Posso indicar mais de uma pessoa?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Sim! Não há limites para indicações. Quanto mais clientes
+                  válidos você indicar, mais você pode ganhar.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Grupo 4: Regras e Termos -->
+          <div class="faq-group">
+            <h3 class="faq-group-title">
+              <i class="fas fa-file-contract"></i> Regras e Termos
+            </h3>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span
+                  >7. Quais são os critérios para uma indicação válida?</span
+                >
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  A indicação é válida quando: <br>1- O cliente não tinha contatado
+                  anteriormente conosco; <br>2- O projeto é efetivamente realizado; <br>3- O
+                  pagamento é concluído.
+                </p>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question">
+                <span>8. Existe algum custo para participar?</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <p>
+                  Não! O programa é totalmente gratuito para quem indica. Você
+                  só ganha com as indicações bem-sucedidas.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-cta">
+          <p>Ainda tem dúvidas?</p>
+          <a
+            href="https://wa.me/5585992069495?text=Olá%20CodJems,%20Tenho%20dúvidas,%20poderia%20me%20ajudar?"
+            class="cta-button"
+            target="_blank"
+          >
+            <i class="fab fa-whatsapp"></i> Fale Conosco
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function () {
+  // ============ Configurações Gerais ============
+  const navbar = document.querySelector(".navbar");
+  const hamburger = document.getElementById("hamburger");
+  const navLinks = document.getElementById("navLinks");
+  const sections = document.querySelectorAll(".page-section");
+
+  // ============ Menu Mobile ============
+  hamburger.addEventListener("click", () => {
+    navLinks.classList.toggle("active");
+  });
+
+  // ============ Controle de Abas ============
+  function showSection(targetId) {
+    // Esconde todas as seções
+    sections.forEach((section) => {
+      section.style.display = "none";
+    });
+
+    // Mostra a seção alvo
+    const targetSection = document.querySelector(targetId);
+    if (targetSection) {
+      targetSection.style.display = "block";
+
+      // Scroll suave
+      window.scrollTo({
+        top: targetSection.offsetTop - 80,
+        behavior: "smooth",
+      });
+    }
+  }
+
+  // ============ Navegação ============
+  function handleNavigation(targetId) {
+    // Fechar menu mobile
+    navLinks.classList.remove("active");
+
+    // Mostrar seção correspondente
+    showSection(targetId);
+  }
+
+  // Eventos para todos os links internos
+  document.querySelectorAll('a[href^="#"]').forEach((link) => {
+    link.addEventListener("click", function (e) {
+      if (this.hash !== "#") {
+        e.preventDefault();
+        handleNavigation(this.hash);
+      }
+    });
+  });
+
+  // ============ Inicialização ============
+  showSection("#inicio"); // Mostra a seção inicial
+
+  // ============ Controle Especial do WhatsApp ============
+  document.querySelectorAll('a[href*="whatsapp.com"]').forEach((button) => {
+    button.addEventListener("click", () => {
+      navLinks.classList.remove("active");
+    });
+  });
+
+  // ============ FAQ Accordion ============
+  document.querySelectorAll(".faq-question").forEach((question) => {
+    question.addEventListener("click", () => {
+      const faqItem = question.closest(".faq-item");
+      faqItem.classList.toggle("active");
+
+      document.querySelectorAll(".faq-item").forEach((item) => {
+        if (item !== faqItem) item.classList.remove("active");
+      });
+    });
+  });
+
+  // ============ Filtro de Projetos ============
+  document.querySelectorAll(".filter-btn").forEach((button) => {
+    button.addEventListener("click", () => {
+      document
+        .querySelectorAll(".filter-btn")
+        .forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+
+      const filter = button.dataset.filter;
+      document.querySelectorAll(".project-card").forEach((card) => {
+        card.style.display =
+          filter === "all" || card.dataset.category === filter
+            ? "block"
+            : "none";
+      });
+    });
+  });
+
+  // ============ Validação do Formulário ============
+  const form = document.getElementById("indicacaoForm");
+  if (form) {
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
+
+      let isValid = true;
+      const fields = this.querySelectorAll("[required]");
+
+      fields.forEach((field) => {
+        if (!field.value.trim()) {
+          isValid = false;
+          field.style.borderColor = "#ff3860";
+        } else {
+          field.style.borderColor = "rgba(190, 0, 255, 0.3)";
+        }
+      });
+
+      // script.js (trecho modificado)
+      if (isValid) {
+        // Coletar dados do formulário
+        const formData = {
+          indicador: {
+            nome:
+              document.getElementById("primeiro-nome").value +
+              " " +
+              document.getElementById("sobrenome").value,
+            email: document.getElementById("email").value,
+            whatsapp: document.getElementById("whatsapp").value,
+            conheceu:
+              document.getElementById("conheceu").options[
+                document.getElementById("conheceu").selectedIndex
+              ].text,
+          },
+          indicado: {
+            nome:
+              document.getElementById("nome-indicado").value +
+              " " +
+              document.getElementById("sobrenome-indicado").value,
+            email: document.getElementById("email-indicado").value,
+            whatsapp: document.getElementById("whatsapp-indicado").value,
+          },
+          projeto: {
+            tipo: document.getElementById("tipo-projeto").options[
+              document.getElementById("tipo-projeto").selectedIndex
+            ].text,
+            descricao: document.getElementById("descricao-projeto").value,
+          },
+        };
+
+        // Construir mensagem para WhatsApp
+        const mensagem = `*Nova Indicação Recebida* 
+
+    *Indicador:*
+    ▸ Nome: ${formData.indicador.nome}
+    ▸ Email: ${formData.indicador.email}
+    ▸ WhatsApp: ${formData.indicador.whatsapp}
+    ▸ Como conheceu: ${formData.indicador.conheceu}
+
+    *Indicado:*
+    ▸ Nome: ${formData.indicado.nome}
+    ▸ Email: ${formData.indicado.email}
+    ▸ WhatsApp: ${formData.indicado.whatsapp}
+
+    *Projeto:*
+    ▸ Tipo: ${formData.projeto.tipo}
+    ▸ Descrição: ${formData.projeto.descricao}`;
+
+        // Codificar mensagem para URL
+        const mensagemCodificada = encodeURIComponent(mensagem);
+
+        // Seu número de WhatsApp (substitua pelo seu número completo com código do país)
+        const seuWhatsapp = "5585992069495"; // Ex: 5511999999999
+
+        // URL do WhatsApp
+        const whatsappUrl = `https://wa.me/${seuWhatsapp}?text=${mensagemCodificada}`;
+
+        // Simular envio e redirecionar
+        const submitBtn = this.querySelector(".submit-btn");
+        submitBtn.disabled = true;
+        submitBtn.innerHTML =
+          'Enviando... <i class="fas fa-spinner fa-spin"></i>';
+
+        setTimeout(() => {
+          submitBtn.innerHTML = 'Enviado! <i class="fas fa-check"></i>';
+          setTimeout(() => {
+            this.reset();
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = "ENVIAR INDICAÇÃO";
+
+            // Abrir WhatsApp após 1 segundo
+            window.open(whatsappUrl, "_blank");
+          }, 2000);
+        }, 1500);
+      } else {
+        alert("Preencha todos os campos obrigatórios!");
+      }
+    });
+  }
+
+  // ============ Efeitos Visuais ============
+  document.querySelectorAll(".team-member").forEach((member) => {
+    member.addEventListener("mouseenter", () => {
+      member.style.transform = "translateY(-10px)";
+      member.style.boxShadow = "0 15px 30px rgba(190, 0, 255, 0.2)";
+    });
+    member.addEventListener("mouseleave", () => {
+      member.style.transform = "";
+      member.style.boxShadow = "";
+    });
+  });
+
+  // ============ Controle da Navbar no Scroll ============
+  window.addEventListener("scroll", () => {
+    navbar.style.background =
+      window.scrollY > 50
+        ? "linear-gradient(135deg, #1a0521 0%, #1a0521 100%)"
+        : "linear-gradient(135deg, #1a0521 0%, #2d0a3a 100%)";
+
+    navbar.style.boxShadow =
+      window.scrollY > 50
+        ? "0 4px 20px rgba(196, 68, 238, 0.2)"
+        : "0 4px 20px rgba(196, 68, 238, 0.1)";
+  });
+
+  // ============ Scroll Down Button ============
+  const scrollArrow = document.querySelector(".scroll-down-arrow");
+  if (scrollArrow) {
+    scrollArrow.addEventListener("click", (e) => {
+      e.preventDefault();
+      handleNavigation("#projetos");
+    });
+
+    window.addEventListener("scroll", () => {
+      scrollArrow.classList.toggle("hidden", window.scrollY > 200);
+    });
+  }
+});
+
+    
+    
+    </script>
+    
+  </body>
+</html>
