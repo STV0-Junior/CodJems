@@ -11,6 +11,14 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <link rel="stylesheet" href="public/assets/css/styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="public/assets/js/script.js"></script>
   </head>
   <body>
     <!-- Navbar -->
@@ -960,6 +968,88 @@
     </section>
 
     <script src="script.js"></script>
+
+
+      <script>
+// Função para enviar o formulário via AJAX
+document.getElementById('indicacaoForm').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const submitBtn = document.getElementById('submitBtn');
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Enviando...';
+    
+    try {
+        // Converter FormData para objeto simples
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
+        
+        const response = await fetch('indicacao.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        // Verifique se a resposta é JSON válido
+        const text = await response.text();
+        let jsonResponse;
+        
+        try {
+            jsonResponse = JSON.parse(text);
+        } catch (e) {
+            throw new Error(`Resposta inválida do servidor: ${text.substring(0, 100)}...`);
+        }
+
+        if (!response.ok || !jsonResponse.success) {
+            throw new Error(jsonResponse.message || 'Erro no servidor');
+        }
+        
+        //ALERT SUCESSO
+            await Swal.fire({
+            title: 'Indicação cadastrada!',
+            icon: 'success',
+            confirmButtonText: 'Fechar',
+            showClass: {
+                popup: 'animate__animated animate__fadeInDown'
+            },
+            hideClass: {
+                popup: 'animate__animated animate__fadeOutUp'
+            },
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'custom-confirm-btn',
+            }
+          });
+            this.reset();
+
+        
+    } catch (error) {
+
+      await Swal.fire({
+            title: 'Oops...',
+            text: error.message,
+            icon: 'error',
+            confirmButtonText: 'Entendi',
+            showClass: {
+                popup: 'animate__animated animate__headShake'
+            },
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: 'custom-confirm-btn',
+            }
+        });
+
+        console.error('Erro detalhado:', error);
+
+    } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'ENVIAR INDICAÇÃO';
+    }
+});
+</script>
+
     
   </body>
 </html>

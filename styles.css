@@ -9,6 +9,34 @@
   font-family: "Poppins", sans-serif;
 }
 
+/* Customização dos botões do SweetAlert */
+.custom-confirm-btn {
+    background: linear-gradient(135deg, #be00ff, #8300ff);
+    color: white;
+    border: none;
+    padding: 1.1rem 2.8rem;
+    font-size: 1.15rem;
+    border-radius: 50px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 22px rgba(190, 0, 255, 0.35);
+    position: relative;
+    overflow: hidden;
+}
+
+.custom-confirm-btn:hover {
+    background-color: #be00ff;
+    transform: scale(1.05);
+}
+
+
+/* Efeito ao clicar */
+.custom-confirm-btn:active {
+    transform: translateY(0) !important;
+}
+/* //////////////////////////////////// */
+
 body {
   background-color: black;
   color: #333;
