@@ -17,6 +17,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
+
+      <!-- CSS Interno (se necessário) -->
+  <style>
+    /*nao use esse css, é so pra usar no index.TXT*/
+  </style>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="public/assets/js/script.js"></script>
   </head>
@@ -34,6 +39,7 @@
         <a href="#inicio"><i class="fas fa-home"></i> Início</a>
         <a href="#projetos"><i class="fas fa-hand-holding-usd"></i>Projetos</a>
         <a href="#produtos"><i class="fas fa-gem"></i> Produtos</a>
+        <a href="#pedido"><i class="fas fa-file-signature"></i> Pedido</a>
         <a href="#formulario"><i class="fas fa-envelope"></i> Formulário</a>
         <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
       </div>
@@ -608,6 +614,97 @@
         </div>
       </div>
     </section>
+
+    <!-- Seção Pedido -->
+<section id="pedido" class="page-section">
+  <div class="container">
+    <form id="pedidoForm" class="indication-form">
+      <div class="section-header">
+        <h2 class="section-title">Solicitar Orçamento</h2>
+        <p class="section-subtitle">Preencha o formulário e nossa equipe entrará em contato</p>
+        <div class="divider"></div>
+      </div>
+
+      <div class="form-section">
+        <div class="form-row">
+          <div class="form-group half-width">
+            <label for="nome-cliente">Nome Completo*</label>
+            <input 
+              type="text" 
+              id="nome-cliente" 
+              name="nome-cliente" 
+              required 
+              placeholder="Ex: João Silva"
+            >
+          </div>
+
+          <div class="form-group half-width">
+            <label for="email-cliente">E-mail*</label>
+            <input 
+              type="email" 
+              id="email-cliente" 
+              name="email-cliente" 
+              required 
+              placeholder="seu@email.com"
+            >
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="whatsapp-cliente">WhatsApp*</label>
+          <input 
+            type="tel" 
+            id="whatsapp-cliente" 
+            name="whatsapp-cliente" 
+            required 
+            placeholder="(00) 00000-0000"
+          >
+        </div>
+
+        <div class="form-group">
+          <label for="tipo-servico">Tipo de Serviço Necessário*</label>
+          <select id="tipo-servico" name="tipo-servico" required>
+            <option value="">Selecione...</option>
+            <option value="landing-page">Landing Page</option>
+            <option value="ecommerce">Loja Virtual</option>
+            <option value="sistema">Sistema Personalizado</option>
+            <option value="automacao">Automação</option>
+            <option value="outro">Outro</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="descricao-projeto">Descreva sua Necessidade*</label>
+          <textarea 
+            id="descricao-projeto" 
+            name="descricao-projeto" 
+            required 
+            rows="4"
+            placeholder="Ex: Preciso de um sistema para gerenciar meu estoque..."
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="conheceu">Como nos conheceu?*</label>
+          <select id="conheceu" name="conheceu" required>
+            <option value="">Selecione...</option>
+            <option value="google">Google/Busca Online</option>
+            <option value="indicacao">Indicação</option>
+            <option value="redes-sociais">Redes Sociais</option>
+            <option value="anuncio">Anúncio Online</option>
+            <option value="outros">Outros</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="submit-btn">
+          <i class="fas fa-paper-plane"></i> Enviar Solicitação
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
 
     <!-- Seção Formulário -->
     <section id="formulario" class="page-section">

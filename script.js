@@ -190,6 +190,68 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // ============ Validação do Formulário de PEDIDO ============
+const formPedido = document.getElementById("pedidoForm");
+if (formPedido) {
+  formPedido.addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    let isValid = true;
+    const fields = this.querySelectorAll("[required]");
+
+    // Validação básica
+    fields.forEach((field) => {
+      if (!field.value.trim()) {
+        isValid = false;
+        field.style.borderColor = "#ff3860";
+      } else {
+        field.style.borderColor = "rgba(190, 0, 255, 0.3)";
+      }
+    });
+
+    if (isValid) {
+      // Coletar dados
+      const formData = {
+        nome: document.getElementById("nome-cliente").value,
+        email: document.getElementById("email-cliente").value,
+        whatsapp: document.getElementById("whatsapp-cliente").value,
+        servico: document.getElementById("tipo-servico").value,
+        descricao: document.getElementById("descricao-projeto").value,
+        conheceu: document.getElementById("conheceu").value
+      };
+
+      // Formatando a mensagem
+      const mensagem = `*Novo Pedido de Orçamento*\n
+        ▸ *Nome:* ${formData.nome}
+        ▸ *Email:* ${formData.email}
+        ▸ *WhatsApp:* ${formData.whatsapp}
+        ▸ *Serviço:* ${formData.servico}
+        ▸ *Como nos conheceu:* ${formData.conheceu}
+        \n*Descrição do Projeto:*\n${formData.descricao}`;
+
+      const whatsappUrl = `https://wa.me/5585992069495?text=${encodeURIComponent(mensagem)}`;
+      
+      const submitBtn = this.querySelector(".submit-btn");
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Enviando...';
+      submitBtn.disabled = true;
+
+      // Simulação de envio
+      setTimeout(() => {
+        window.open(whatsappUrl, "_blank");
+        submitBtn.innerHTML = '<i class="fas fa-check"></i> Enviado!';
+        setTimeout(() => {
+          this.reset();
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Enviar Solicitação';
+        }, 2000);
+      }, 1000);
+    } else {
+      alert("Preencha todos os campos obrigatórios!");
+    }
+  });
+}
+
+
   // ============ Efeitos Visuais ============
   document.querySelectorAll(".team-member").forEach((member) => {
     member.addEventListener("mouseenter", () => {
